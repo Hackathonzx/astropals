@@ -2,17 +2,6 @@
 
 AstroPet is a decentralized NFT-based platform allowing users to create, mint, and trade unique digital pets. Built on the Arbitrum blockchain with ERC-721 tokens, AstroPet features cross-chain compatibility, metadata updates, and burnable tokens, making it versatile for game-like environments and future expansion.
 
-# Table of Contents
-Project Overview
-Features
-Technical Approach
-Why We Chose These Approaches
-Experience with Vottun APIs
-Smart Contract Details
-Frontend and Backend Development
-How to Run the Project
-License
-
 # Project Overview
 
 AstroPet leverages blockchain technology to provide users with unique NFT collectibles. Each NFT has customizable metadata that can be updated post-mint, ensuring adaptability for various use cases. With a mint limit per address, AstroPet fosters exclusivity and enhances collectible value, making it appealing for marketplaces and gaming applications.
@@ -120,19 +109,33 @@ npx hardhat test
 
 
   AstroPet
+
     Deployment
+
       ✔ Should set the right owner (38ms)
+
     Minting
+
       ✔ Should mint an AstroPet NFT
+
       ✔ Should not allow minting more than the limit (80ms)
+
     Updating Token URI
+
       ✔ Should allow the owner to update the token URI
+
     Burning Tokens
+
       ✔  Should allow the owner to burn the token
+
     Transferring Tokens
+
       ✔ Should allow the owner to transfer the token
+
     Updating Token URI
+
       ✔ Should allow the owner to update the token URI
+      
       ✔ Should not allow non-owners to update the token URI
 
 
