@@ -1,96 +1,143 @@
-# Project Name: IDSafe
-# Overview
-IDSafe is a blockchain-based identity verification system designed for refugees. It uses decentralized identifiers (DIDs) and Chainlink's Cross-Chain Interoperability Protocol (CCIP) to manage identity verification across different blockchains. The system ensures that refugees can access essential services like healthcare, education, and financial assistance through verified digital credentials.
+# AstroPet - NFT-Based Digital Collectibles
+
+AstroPet is a decentralized NFT-based platform allowing users to create, mint, and trade unique digital pets. Built on the Arbitrum blockchain with ERC-721 tokens, AstroPet features cross-chain compatibility, metadata updates, and burnable tokens, making it versatile for game-like environments and future expansion.
+
+# Table of Contents
+Project Overview
+Features
+Technical Approach
+Why We Chose These Approaches
+Experience with Vottun APIs
+Smart Contract Details
+Frontend and Backend Development
+How to Run the Project
+License
+
+# Project Overview
+
+AstroPet leverages blockchain technology to provide users with unique NFT collectibles. Each NFT has customizable metadata that can be updated post-mint, ensuring adaptability for various use cases. With a mint limit per address, AstroPet fosters exclusivity and enhances collectible value, making it appealing for marketplaces and gaming applications.
 
 # Features
-- Decentralized Identity Management: Each refugee is assigned a unique Decentralized Identifier (DID) to manage their identity securely.
-- Cross-Chain Interoperability: Integration with Chainlink CCIP allows for seamless identity verification across multiple blockchain networks.
-- Credential Issuance and Verification: Refugees receive verifiable credentials as NFTs or tokens, which can be used to prove their identity.
-- Event Emission: The system emits events for credential issuance and cross-chain verification, ensuring transparency and traceability.
 
-# How Chainlink is Used in the Project:
-In this project, Chainlink's Cross-Chain Interoperability Protocol (CCIP) is used to enable cross-chain identity verification. Specifically, Chainlink CCIP ensures that identity verification can occur across different blockchains, making the credential verification system interoperable. This is done by:
-- Emitting a cross-chain verification event that signals the credential needs to be verified on a specific chain (e.g., Avalanche).
-- Utilizing Chainlink's oracles to send verification requests and process responses between multiple blockchains securely.
+**NFT Minting:** Users can mint unique AstroPets with specific metadata and origin tracking.
 
-# Architecture
-# Smart Contracts:
-- DIDRegistry.sol: Manages the registration and retrieval of DIDs.
-- VerificationOracle.sol: Handles cross-chain verification requests using Chainlink CCIP.
-- CredentialNFT.sol: Issues and manages credentials as ERC721 NFTs.
+**Metadata Update Function:** NFT owners can update metadata, enhancing flexibility and utility.
+
+**Mint Limit:** Limits the number of NFTs minted per address.
+
+**Cross-Chain Compatibility:** Cross-chain tracking enables inter-chain asset transfer in future updates.
+
+**Burn Function:** Users can burn NFTs, making tokens finite and reducing supply.
+
+# Technical Approach
+
+**Smart Contracts**
+
+Developed in Solidity, the AstroPet smart contract adheres to the ERC-721 standard with extensions for metadata management, minting limits, and burn functions. OpenZeppelin’s security libraries reinforce contract reliability.
+
+**Frontend**
+
+The frontend, developed using React, connects with the smart contract through ethers.js, providing a user-friendly interface for minting, updating, and transferring NFTs. Tailwind CSS was used for responsive design, ensuring an accessible and aesthetic user experience.
+
+**Backend**
+
+A Node.js and Express backend facilitates additional application logic, such as transaction history tracking and origin verification. Vottun APIs integrate seamlessly into the backend for cross-chain functionality, enhancing AstroPet's interoperability.
+
+# Why We Chose These Approaches
+
+**Smart Contract Decisions**
+
+- ERC-721 Standard: We chose ERC-721 for AstroPet because it supports unique tokens, ideal for digital collectibles. The burn function and minting limits ensure that the NFT supply remains exclusive.
+
+- Minting Limit per Address: This limit encourages decentralized ownership and provides scarcity, fostering a healthy ecosystem of unique collectibles.
+
+**Frontend and Backend Decisions**
+
+- React with ethers.js: React was chosen for its efficiency and compatibility with web3 libraries like ethers.js, which provides smooth blockchain interactions.
+
+- Vottun APIs for Cross-Chain Compatibility: Vottun APIs were selected to allow future interoperability, letting AstroPets exist across multiple chains without disrupting metadata.
+
+# Experience with Vottun APIs
+
+Working with Vottun APIs was crucial for developing AstroPet’s cross-chain compatibility. The APIs streamlined complex functionalities like chain interoperability and cross-chain verification, saving significant development time. Vottun’s documentation was detailed, helping our team navigate integration challenges. Our experience showed us the potential of cross-chain capabilities and how Vottun APIs can bridge different blockchain ecosystems, essential for any NFT platform that aims for widespread adoption.
+
+# Smart Contract Details
+
+The smart contract was developed with specific functions to manage NFTs effectively:
+
+- Minting Function: Mints a new AstroPet NFT, assigns metadata, and logs the origin chain.
+
+- Update Metadata Function: Allows owners to update NFT metadata post-mint, supporting enhanced adaptability.
+
+- Burn Function: Enables owners to burn NFTs, reducing the circulating supply of AstroPets.
+
+**Sample Code**
+
+See the full contract in the contracts/AstroPet.sol file.
+
+**Frontend and Backend Development**
+
+The frontend is built in React, with ethers.js handling blockchain interactions, making it easy to integrate AstroPet’s smart contract. Tailwind CSS provides a responsive UI framework for seamless user experience across devices. The backend, built with Node.js and Express, uses Vottun APIs to manage cross-chain data.
+
+**Key Frontend Components**
+
+- Minting Page: Users can mint new AstroPets by providing metadata and chain of origin.
+- NFT Dashboard: Users can view, update, transfer, or burn their AstroPets.
+
+**Key Backend Components**
+
+- Transaction Management: The backend tracks each NFT transaction, verifying ownership and mint counts.
+
+- Cross-Chain Verification: Uses Vottun APIs for origin tracking and inter-chain compatibility.
+
+# How to Run the Project
+
+Clone the repository:
+
+git clone https://github.com/Hackathonzx/astropals.git
+
+cd astropals
+
+**Install dependencies:**
+
+- npm install
 
 # Deployment
-Network: IntersectTestnet, Intersect network on Avalanche.
 
-# Contract Addresses:
-- DIDRegistry: [0x41CD3d7753eeAD4c2d384a6C0074eA4c27dE36F1]
-- VerificationOracle: [0xf1979Ac32D086D1f3f3773fe0828d37729ed545f]
-- CredentialNFT: [0x1d8c981FD95060A45b3Cea346DbF7b5b48f5CD36]
+- Run npx hardhat compile to compile the contract.
 
-# Setup and Installation
-Clone the Repository:  git clone https://github.com/yourusername/idsafe.git
-cd <project-repo-directory>
+- Run npx hardhat run ignition/modules/deploy.js --network arbitrumSepolia to deploy the contract.
 
-# Dependencies and Installation
-# Dependencies:
-Solidity Version: ^0.8.0
-OpenZeppelin Contracts:
-@openzeppelin/contracts/token/ERC721/ERC721.sol
-@openzeppelin/contracts/access/Ownable.sol
-@openzeppelin/contracts/utils/Counters.sol
-Hardhat: For local development and testing
-npm install --save-dev hardhat
-Chai: Assertion library for testing
-npm install chai
-Ethers.js: For interacting with Ethereum
-npm install ethers
-Chainlink:
-npm install @chainlink/contracts: For utilizing Chainlink CCIP for cross-chain interoperability.
-Chainlink CCIP (Cross-Chain Interoperability Protocol) for cross-chain data transmission.
-npm install @chainlink/ccip
+Here is the deployed address:
 
-# Installation:
-- Install the dependencies: npm install
-- Compile the smart contracts: npx hardhat compile
-- Run tests: npx hardhat test
-- Deploy the contract: npx hardhat run ignition/modules/deploy.js --network <network-name>
-
-# Usage
-- Issuing Credentials:
-Call issueCredentialWithMetadata(to: address, metadata: string) on the CredentialNFT contract.
-
-- Verifying Credentials:
-Use getCredentialMetadata(tokenId: uint256) to retrieve metadata.
-
-- Cross-Chain Verification:
-Call emitCrossChainVerificationEvent(tokenId: uint256, chain: string) to emit verification events.
+AstroPet deployed to: 0x7516abedc7e8ca01143ad636a6963B9887FC7Cf6
 
 # Testing
-- Test Framework: Hardhat
-- Tests: [Test files]
-- test/CredentialNFT.test.js: Tests for the CredentialNFT contract.
-- test/DIDRegistry.test.js: Tests for the DIDRegistry contract.
-- test/VerificationOracle.test.js: Tests for the VerificationOracle contract.
 
-# Contributing
-- Fork the Repository:
-- Create a New Branch:
-git checkout -b feature/your-feature
-- Make Changes and Commit:
-git add .
-git commit -m "Add feature"
-Push Changes:
-git push origin feature/your-feature
+To run the test
+
+npx hardhat test
+
+
+  AstroPet
+    Deployment
+      ✔ Should set the right owner (38ms)
+    Minting
+      ✔ Should mint an AstroPet NFT
+      ✔ Should not allow minting more than the limit (80ms)
+    Updating Token URI
+      ✔ Should allow the owner to update the token URI
+    Burning Tokens
+      ✔  Should allow the owner to burn the token
+    Transferring Tokens
+      ✔ Should allow the owner to transfer the token
+    Updating Token URI
+      ✔ Should allow the owner to update the token URI
+      ✔ Should not allow non-owners to update the token URI
+
+
+  8 passing (4s)
+
 
 # License
-[MIT License]
-
-# Acknowledgments
-futhmah456@gmail.com
-nathfavour02@gmail.com
-
-
-
-
-
-
+AstroPet is licensed under the MIT License.
