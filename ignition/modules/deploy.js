@@ -6,7 +6,7 @@ async function main() {
     const astroPet = await AstroPet.deploy(); // Deploy the contract
 
     // Wait for the contract to be deployed
-  await astroPet.waitForDeployment(); // Updated for ethers v6
+  await astroPet.waitForDeployment();
   console.log("AstroPet deployed to:", await astroPet.getAddress());
 }
 

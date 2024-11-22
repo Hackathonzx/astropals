@@ -18,12 +18,7 @@ contract AstroPet is ERC721URIStorage, Ownable, ReentrancyGuard {
         _tokenIdCounter = 1; // Start token IDs at 1
     }
 
-    // /**
-    //  * @dev Mints a new AstroPet NFT.
-    //  * @param to The address that will own the minted NFT.
-    //  * @param _tokenURI The metadata URI of the AstroPet.
-    //  * @param _originChain Original chain data for cross-chain compatibility.
-    //  */
+   
     modifier canMint(address to) {
         require(addressMintCount[to] < maxMintPerAddress, "Mint limit reached for this address");
         _;
