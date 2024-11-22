@@ -11,7 +11,7 @@ describe("AstroPet", function () {
         AstroPet = await ethers.getContractFactory("AstroPet");
         [owner, addr1] = await ethers.getSigners();
         astroPet = await AstroPet.deploy();
-        await astroPet.waitForDeployment();
+        await astroPet.waitForDeployment(); // for v6
     });
 
     describe("Deployment", function () {
