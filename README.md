@@ -1,6 +1,6 @@
 # AstroPet - NFT-Based Digital Collectibles
 
-AstroPet is a decentralized NFT-based platform allowing users to create, mint, and trade unique digital pets. Built on the Arbitrum blockchain with ERC-721 tokens, AstroPet features cross-chain compatibility, metadata updates, and burnable tokens, making it versatile for game-like environments and future expansion.
+AstroPet is a decentralized NFT-based platform allowing users to create, mint, and trade unique digital pets. Built on the Lisk blockchain with ERC-721 tokens, AstroPet features cross-chain compatibility, metadata updates, and burnable tokens, making it versatile for game-like environments and future expansion.
 
 # Project Overview
 
@@ -30,7 +30,7 @@ The frontend, developed using React, connects with the smart contract through et
 
 **Backend**
 
-A Node.js and Express backend facilitates additional application logic, such as transaction history tracking and origin verification. Vottun APIs integrate seamlessly into the backend for cross-chain functionality, enhancing AstroPet's interoperability.
+A Node.js and Express backend facilitates additional application logic, such as transaction history tracking and origin verification. 
 
 # Why We Chose These Approaches
 
@@ -44,11 +44,8 @@ A Node.js and Express backend facilitates additional application logic, such as 
 
 - React with ethers.js: React was chosen for its efficiency and compatibility with web3 libraries like ethers.js, which provides smooth blockchain interactions.
 
-- Vottun APIs for Cross-Chain Compatibility: Vottun APIs were selected to allow future interoperability, letting AstroPets exist across multiple chains without disrupting metadata.
+- Lisk APIs for Cross-Chain Compatibility: Lisk APIs were selected to allow future interoperability, letting AstroPets exist across multiple chains without disrupting metadata.
 
-# Experience with Vottun APIs
-
-Working with Vottun APIs was crucial for developing AstroPet’s cross-chain compatibility. The APIs streamlined complex functionalities like chain interoperability and cross-chain verification, saving significant development time. Vottun’s documentation was detailed, helping our team navigate integration challenges. Our experience showed us the potential of cross-chain capabilities and how Vottun APIs can bridge different blockchain ecosystems, essential for any NFT platform that aims for widespread adoption.
 
 # Smart Contract Details
 
@@ -66,7 +63,7 @@ See the full contract in the contracts/AstroPet.sol file.
 
 **Frontend and Backend Development**
 
-The frontend is built in React, with ethers.js handling blockchain interactions, making it easy to integrate AstroPet’s smart contract. Tailwind CSS provides a responsive UI framework for seamless user experience across devices. The backend, built with Node.js and Express, uses Vottun APIs to manage cross-chain data.
+The frontend is built in React, with ethers.js handling blockchain interactions, making it easy to integrate AstroPet’s smart contract. Tailwind CSS provides a responsive UI framework for seamless user experience across devices. The backend, built with Node.js and Express, uses Lisk APIs to manage cross-chain data.
 
 **Key Frontend Components**
 
@@ -77,7 +74,7 @@ The frontend is built in React, with ethers.js handling blockchain interactions,
 
 - Transaction Management: The backend tracks each NFT transaction, verifying ownership and mint counts.
 
-- Cross-Chain Verification: Uses Vottun APIs for origin tracking and inter-chain compatibility.
+- Cross-Chain Verification: Uses Lisk APIs for origin tracking and inter-chain compatibility.
 
 # How to Run the Project
 
@@ -95,11 +92,25 @@ cd astropals
 
 - Run npx hardhat compile to compile the contract.
 
-- Run npx hardhat run ignition/modules/deploy.js --network arbitrumSepolia to deploy the contract.
+- Run npx hardhat run ignition/modules/deploy.js --network LiskSepolia to deploy the contract.
 
-Here is the deployed address:
+**Here is the deployed address:**
 
-AstroPet deployed to: 0x7516abedc7e8ca01143ad636a6963B9887FC7Cf6
+AstroPet deployed to: 0x2Fad953E1F524e6590EdF50BDA6FCB391Dd4Fd96
+
+**To verify Astropals run:**
+
+ npx hardhat verify --network LiskSepolia 0x2Fad953E1F524e6590EdF50BDA6FCB391Dd4Fd96
+
+Successfully submitted source code for contract
+
+contracts/AstroPet.sol:AstroPet at 0x2Fad953E1F524e6590EdF50BDA6FCB391Dd4Fd96
+
+for verification on the block explorer. Waiting for verification result...
+
+Successfully verified contract AstroPet on the block explorer.
+
+https://sepolia-blockscout.lisk.com/address/0x2Fad953E1F524e6590EdF50BDA6FCB391Dd4Fd96#code
 
 # Testing
 
